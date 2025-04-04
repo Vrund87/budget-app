@@ -9,6 +9,7 @@ import AddBudgetForm from "../components/AddBudgetForm";
 import AddExpenseForm from "../components/AddExpenseForm";
 import BudgetItem from "../components/BudgetItem";
 import Table from "../components/Table";
+import BudgetCharts from "../components/BudgetCharts";
 
 // loader
 export function dashboardLoader() {
@@ -79,7 +80,7 @@ const Dashboard = () => {
       {userName ? (
         <div className="dashboard">
           <h1>
-            Wekcome back, <span className="accent">{userName}</span>
+            Welcome back, <span className="accent">{userName}</span>
           </h1>
           <div className="grid-sm">
             {budgets && budgets.length > 0 ? (
@@ -93,6 +94,9 @@ const Dashboard = () => {
                   {budgets.map((budget) => (
                     <BudgetItem key={budget.id} budget={budget} />
                   ))}
+                </div>
+                <div className="card">
+                  <BudgetCharts budgets={budgets} expenses={expenses} />
                 </div>
                 {expenses && expenses.length > 0 && (
                   <div className="grid-md">
