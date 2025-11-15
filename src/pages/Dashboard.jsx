@@ -95,23 +95,25 @@ const Dashboard = () => {
                     <BudgetItem key={budget.id} budget={budget} />
                   ))}
                 </div>
-                <div className="card">
-                  <BudgetCharts budgets={budgets} expenses={expenses} />
-                </div>
                 {expenses && expenses.length > 0 && (
-                  <div className="grid-md">
-                    <h2>Recent Expenses</h2>
-                    <Table
-                      expenses={expenses.sort(
-                        (a, b) => b.createAt - a.createAt
-                      ).slice(0, 8)}
-                    />
-                    {expenses.length > 8 && (
-                      <Link to="/expenses" className="btn btn--dark">
-                        View all expenses
-                      </Link>
-                    )}
-                  </div>
+                  <>
+                    <div className="card">
+                      <BudgetCharts budgets={budgets} expenses={expenses} />
+                    </div>
+                    <div className="grid-md">
+                      <h2>Recent Expenses</h2>
+                      <Table
+                        expenses={expenses.sort(
+                          (a, b) => b.createAt - a.createAt
+                        ).slice(0, 8)}
+                      />
+                      {expenses.length > 8 && (
+                        <Link to="/expenses" className="btn btn--dark">
+                          View all expenses
+                        </Link>
+                      )}
+                    </div>
+                  </>
                 )}
               </div>
             ) : (

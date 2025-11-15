@@ -17,7 +17,7 @@ export async function expensesAction({ request }) {
         key: "expenses",
         id: values.expenseId,
       });
-      return toast.success(`Expense ${values.newExpense} deleted!`);
+      return toast.success(`Expense ${values.removeExpense} deleted!`);
     } catch (error) {
       throw new Error("Failed to delete expense");
     }
